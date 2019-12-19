@@ -24,5 +24,3 @@ branches:
   only: 
     - master
     if: type = push
-
-
