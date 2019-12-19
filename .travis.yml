@@ -29,8 +29,3 @@ script:
 
 deploy:
 - sfdx force:source:deploy -u DevHubTrail --wait 10 --testlevel RunLocalTests -p force-app
-
-stages:
-  - name: deploy
-    # require the branch name to be master
-    if: branch = master
