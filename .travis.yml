@@ -28,4 +28,4 @@ script:
 - sfdx force:org:delete -u ciorg -p
 
 deploy:
-- sfdx force:source:deploy -u DevHubTrail --wait 10 --testlevel RunLocalTests -p force-app
+sfdx force:source:deploy -u DevHubTrail --wait 10 --testlevel RunLocalTests -p force-app
