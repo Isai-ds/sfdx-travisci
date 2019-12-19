@@ -19,6 +19,8 @@ before_install:
 - sfdx plugins --core
 - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY_TRAIL --jwtkeyfile assets/server.key
   --username $USERNAME_TRAIL --setdefaultdevhubusername -a DevHubTrail
-script: ./scripts/deploy.sh
+script:
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then ./scripts/deploy.sh; fi'
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./scripts/review.sh; fi'
 
 
