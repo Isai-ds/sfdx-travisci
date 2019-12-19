@@ -1,3 +1,3 @@
 <aura:component implements="flexipage:availableForAllPageTypes" access="global" >
-	<h1> Welcome to Coca Cola Company!!</h1>
+	<h1> Welcome !!</h1>
 </aura:component>
