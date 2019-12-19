@@ -26,3 +26,6 @@ script:
 - sfdx force:source:push -u ciorg
 - sfdx force:apex:test:run -u ciorg --wait 10
 - sfdx force:org:delete -u ciorg -p
+
+deploy:
+sfdx force:source:deploy -u DevHubTrail --wait 10 --testlevel RunLocalTests -p force-app
