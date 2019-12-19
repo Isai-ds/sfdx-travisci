@@ -6,8 +6,6 @@ if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
     sfdx force:source:push -u ciorg
     sfdx force:apex:test:run -u ciorg --wait 10
     sfdx force:org:delete -u ciorg -p
-fi
-
-if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
+else
     sfdx force:source:deploy -u DevHubTrail --testlevel RunLocalTests -p force-app
 fi
