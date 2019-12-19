@@ -20,4 +20,17 @@ before_install:
 - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY_TRAIL --jwtkeyfile assets/server.key
   --username $USERNAME_TRAIL --setdefaultdevhubusername -a DevHubTrail
 script:
+- sfdx force:org:create -v DevHubTrail -s -f config/project-scratch-def.json -a ciorg
+  --wait 3
+- sfdx force:org:display -u ciorg
+- sfdx force:source:push -u ciorg
+- sfdx force:apex:test:run -u ciorg --wait 10
+- sfdx force:org:delete -u ciorg -p
+
+deploy:
 - sfdx force:source:deploy -u DevHubTrail --wait 10 --testlevel RunLocalTests -p force-app
+
+stages:
+  - name: deploy
+    # require the branch name to be master
+    if: branch = master
