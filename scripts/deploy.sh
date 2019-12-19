@@ -9,5 +9,5 @@ if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
 fi
 
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
-    sfdx force:org:deploy -u DevHubTrail --testlevel RunLocalTests -p force-app
+    sfdx force:source:deploy -u DevHubTrail --testlevel RunLocalTests -p force-app
 fi
