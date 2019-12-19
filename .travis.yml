@@ -20,4 +20,4 @@ before_install:
 - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY_TRAIL --jwtkeyfile assets/server.key
   --username $USERNAME_TRAIL --setdefaultdevhubusername -a DevHubTrail
 script:
-- sfdx force:source:deploy -u DevHubTrail --wait 10 --testlevel RunLocalTests
+- sfdx force:source:deploy -u DevHubTrail --wait 10 --testlevel RunLocalTests -p force-app
